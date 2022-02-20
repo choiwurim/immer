@@ -11,11 +11,11 @@ const App=()=>{
   const onChange=useCallback(event=>{
     const {name,value}=event.target;
     Setform(
-      produce(form,draft=>{
+      produce(draft=>{
         draft[name]=value;
       })
     );
-  },[form]);
+  },[]);
   const onSubmit=useCallback(event=>{
     event.preventDefault();
     const info={
@@ -37,11 +37,11 @@ const App=()=>{
   const onRemove=useCallback(
     id=>{
       Setdata(
-        produce(data,draft=>{
+        produce(draft=>{
           draft.array.splice(draft.array.findIndex(info=>info.id===id),1);
         })
       );
-    },[data]
+    },[]
   );
   return(
     <div>
